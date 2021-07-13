@@ -1,4 +1,5 @@
 from discord.ext import commands
+import cogs.base
 
 
 # By subclassing commands.Bot it allows us to define our own behavior for events that we would otherwise have to use decorators for
@@ -31,9 +32,10 @@ LOGIN_TOKEN = get_login_token("token.txt")
 
 # If the login token is not None and is not empty, create the bot
 if LOGIN_TOKEN != None and LOGIN_TOKEN != "":
-    bot = AdharaBot(command_prefix="*")
+    bot = AdharaBot(command_prefix="*", case_insensitive=True)
 
     # TODO: Load bot cogs
+    bot.add_cog(cogs.base.Base(bot))
         
     bot.run(LOGIN_TOKEN)
         
