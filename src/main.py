@@ -1,6 +1,7 @@
 from discord.ext import commands
 import cogs.base
 import cogs.planetside
+import cogs.warframe
 
 
 # By subclassing commands.Bot it allows us to define our own behavior for events that we would otherwise have to use decorators for
@@ -38,6 +39,7 @@ if LOGIN_TOKEN != None and LOGIN_TOKEN != "":
     # TODO: Load bot cogs
     bot.add_cog(cogs.base.Base(bot))
     bot.add_cog(cogs.planetside.Planetside(bot))
+    bot.add_cog(cogs.warframe.Warframe(bot))
         
     bot.run(LOGIN_TOKEN)
         
